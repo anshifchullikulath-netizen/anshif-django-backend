@@ -11,6 +11,7 @@ ALLOWED_HOSTS = ["anshif-django-backend.onrender.com"]
 
 INSTALLED_APPS = [
     "home",
+    "corsheaders",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -22,6 +23,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -88,6 +90,13 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+CORS_ALLOWED_ORIGINS = [
+    "https://anshifchullikulath-netizen.github.io",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://anshifchullikulath-netizen.github.io",
+]
 
 
 MAILERS = {

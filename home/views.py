@@ -1,22 +1,31 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from .models import Enquiry
+import json
 
 
 def enquiry(request):
+
     if request.method == "POST":
-        name = request.POST.get("name")
-        phone = request.POST.get("phone")
-        email = request.POST.get("email")
-        message = request.POST.get("message")
 
-        Enquiry.objects.create(
-            name=name,
-            phone=phone,
-            email=email,
-            message=message
-        )
+        try:
+            data = json.loads(request.body)
 
-        return redirect("success")
+            name = data.get("name")
+            email = data.get("email")
+            message = data.get("message")
+
+            Enquiry.objects.create(
+                name=name,
+                phone="",
+                email=email,
+                message=message
+            )
+
+            return JsonResponse({"success": True})
+
+        except Exception as e:
+            return JsonResponse({"success": False, "error": str(e)}, status=400)
 
     return render(request, "contact.html")
 
