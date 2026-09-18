@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact</title>
+</head>
+<body>
+
+    <h1>Contact Me</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Phone:</label><br>
+        <input type="text" name="phone" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Message:</label><br>
+        <textarea name="message" required></textarea><br><br>
+
+        <button type="submit">Send Enquiry</button>
+    </form>
+
+</body>
+</html>
