@@ -6,7 +6,7 @@ SECRET_KEY = 'django-insecure-lpx5@808)8w-_sbpco#2*7j1y045iyl9b#i^hkfvl-2uw)2%44
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["anshif-django-backend.onrender.com"]
 
 
 INSTALLED_APPS = [
