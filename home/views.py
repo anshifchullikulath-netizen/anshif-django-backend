@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .models import Enquiry
+from django.views.decorators.csrf import csrf_exempt
 import json
 
 
+@csrf_exempt
 def enquiry(request):
 
     if request.method == "POST":
